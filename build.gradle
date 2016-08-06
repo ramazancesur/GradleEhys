@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "http://download.java.net/maven/2"
+        }
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.2.4'
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+        classpath 'org.gradle.api.plugins:gradle-clover-plugin:0.8.2'
+        classpath 'me.champeau.gradle:gradle-javadoc-hotfix-plugin:0.1'
+    }
+}
+apply plugin: 'war'
+apply plugin: 'tomcat'
+apply plugin: 'java'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-idea'
+apply plugin: 'idea'
+
+apply from: "$rootDir/conf/gradle/dependencies.gradle"
+apply from: "$rootDir/conf/gradle/liquibase.gradle"
+apply from: "$rootDir/conf/gradle/checkstyle.gradle"
+apply from: "$rootDir/conf/gradle/pmd.gradle"
+apply from: "$rootDir/conf/gradle/javadoc.gradle"
+apply from: "$rootDir/conf/gradle/jdepend.gradle"
+apply from: "$rootDir/conf/gradle/findbugs.gradle"
+apply from: "$rootDir/conf/gradle/javancss.gradle"
+apply from: "$rootDir/conf/gradle/tomcat.gradle"
+
+
+defaultTasks 'clean', 'check', 'build', 'javadoc'
+description = 'ProLMS'
+
+if (cleanBeforeCompile.toBoolean()) {
+    compileJava { dependsOn += ['clean'] }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.spring.io/milestone/' }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.5'
+}
+
+idea {
+    module {
+        //default settings for downloading sources and Javadoc:
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
+
+test {
+    testLogging {
+        // Show that tests are run in the command-line output
+        events 'started', 'passed'
+    }
+    ignoreFailures true
+}

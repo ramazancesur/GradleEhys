@@ -1,0 +1,16 @@
+apply plugin: 'findbugs'
+findbugs {
+    ignoreFailures = ignoreFailuresInCheck.toBoolean()
+    toolVersion = "3.0.0"
+    sourceSets = [sourceSets.main]
+    reportsDir = file("$project.buildDir/reports/findbugs")
+    effort = "max"
+    reportLevel = "high"
+    excludeFilter = file("$rootProject.projectDir/conf/findbugs/excludeFilter.xml")
+}
+findbugsMain {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}

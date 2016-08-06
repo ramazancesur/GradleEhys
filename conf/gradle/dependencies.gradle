@@ -1,0 +1,96 @@
+ext {
+    servletVersion = '3.1.0'
+    tomcatVersion = '7.0.63'
+    springVersion = '4.0.6.RELEASE'
+    springSecurityVersion = '3.2.4.RELEASE'
+    thymeleafVersion = '2.1.3.RELEASE'
+    slf4jVersion = '1.7.12'
+    logbackVersion = '1.1.3'
+}
+
+dependencies {
+
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-log4j:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    provided "javax.servlet:javax.servlet-api:${servletVersion}"
+
+    // spring
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.springframework:spring-aop:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-oxm:$springVersion"
+    compile 'org.springframework.data:spring-data-jpa:1.5.1.RELEASE'
+
+    // spring aop
+    compile "org.springframework:spring-aop:$springVersion"
+    compile 'cglib:cglib-nodep:3.1'
+    compile 'cglib:cglib:2.2.2'
+    compile 'cglib:cglib-full:2.0.2'
+    compile 'org.aspectj:aspectjweaver:1.8.0'
+
+    // spring security
+    compile "org.springframework.security:spring-security-core:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
+
+    // thymeleaf
+    compile 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.2.RELEASE'
+    compile "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.3.3"
+
+    // hibernate
+    compile 'org.hibernate:hibernate-core:4.3.5.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.3.6.Final'
+
+    compile 'commons-lang:commons-lang:2.6'
+
+    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.0.1.Final'
+
+    //logging
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+
+    //for BasicDataSource
+    compile 'commons-dbcp:commons-dbcp:1.2.2'
+
+    //json
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.0-rc4'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.0-rc4'
+
+    //for Hypermedia
+    compile 'com.jayway.jsonpath:json-path:2.0.0'
+    compile 'org.springframework.hateoas:spring-hateoas:0.17.0.RELEASE'
+
+    //java melody
+    compile 'net.bull.javamelody:javamelody-core:1.57.0'
+
+    //itext Pdf
+    compile 'com.lowagie:itext:2.1.7'
+
+    //mysql
+    compile 'mysql:mysql-connector-java:5.1.38'
+
+    //for xls
+    compile 'org.apache.poi:poi:3.12'
+
+    //redis
+    compile 'org.springframework.data:spring-data-redis:1.5.0.RELEASE'
+
+    //jedis
+    compile 'redis.clients:jedis:2.7.0'
+
+    //TEST
+    testCompile 'org.springframework:spring-test:3.2.3.RELEASE'
+    testCompile 'junit:junit:4.11'
+    testCompile "org.mockito:mockito-core:1.9.5"
+    testCompile "org.hamcrest:hamcrest-library:1.3"
+}

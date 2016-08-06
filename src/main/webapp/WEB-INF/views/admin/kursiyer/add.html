@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<!--Start Head-->
+<head data-th-replace="fragment/head :: head">
+</head>
+<!--End Head-->
+<body>
+
+<div class="container">
+    <h2 data-th-text="#{li.kursiyer.add}"></h2>
+    <form role="form" data-th-object="${kursiyerDto}" data-th-action="@{kursiyer_save}">
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.name}"></label>
+            <input type="text" class="form-control" data-th-field="*{adi}"/>
+        </div>
+
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.surname}"></label>
+            <input type="text" class="form-control" data-th-field="*{soyadi}"/>
+        </div>
+
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.identityno}"></label>
+            <input type="number" class="form-control" data-th-field="*{tcKimlikNo}"/>
+        </div>
+
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.email}"></label>
+            <input type="email" class="form-control" data-th-field="*{email}"/>
+        </div>
+
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.phone}"></label>
+            <input type="text" class="form-control" data-th-field="*{telefon}"/>
+        </div>
+
+        <div class="form-group">
+            <label data-th-text="#{label.kursiyer.address}"></label>
+            <textarea class="form-control" data-th-field="*{adres}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default"
+                data-th-text="#{button.kursiyer.add}"></button>
+    </form>
+</div>
+
+<!--Start Footer-->
+<footer data-th-replace="fragment/footer :: footer">
+</footer>
+<!--End Footer-->
+</body>
+</html>

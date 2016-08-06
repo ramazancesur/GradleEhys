@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head data-th-replace="fragment/head :: head">
+</head>
+<body>
+
+<!--<a data-th-href="@{?lang=tr}">TR</a>-->
+<!--<a data-th-href="@{?lang=en}">EN</a>-->
+
+<!--<div data-th-text="#{label.welcome}">Welcome</div>-->
+<!--<div data-th-text="${message}">Deny</div>-->
+
+
+<!--<a data-th-href="@{/admin}">Admin</a>-->
+
+
+<!--<div data-sec-authorize="hasRole('ADMIN')">-->
+    <!--SİZ YÖNETİCİSİNİZ.-->
+<!--</div>-->
+<!--<div data-sec-authorize="hasRole('USER')">-->
+    <!--SİZ KULLANICISINIZ.-->
+<!--</div>-->
+
+<!--Logged user: <span data-sec-authentication="principal.name">Bob</span>-->
+<!--Roles: <span data-sec-authentication="principal.authorities">[USER, ADMIN]</span>-->
+
+<!--<a data-th-href="@{/roles}">Roller</a>-->
+
+
+<!--<form data-th-action="@{/logout}" method="post">-->
+    <!--<input type="submit" value="Log out"/>-->
+<!--</form>-->
+
+<!--<div id="modalbox">-->
+    <!--<div class="devoops-modal">-->
+        <!--<div class="devoops-modal-header">-->
+            <!--<div class="modal-header-name">-->
+                <!--<span>Basic table</span>-->
+            <!--</div>-->
+            <!--<div class="box-icons">-->
+                <!--<a class="close-link">-->
+                    <!--<i class="fa fa-times"></i>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="devoops-modal-inner">-->
+        <!--</div>-->
+        <!--<div class="devoops-modal-bottom">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div data-th-replace="fragment/header :: header">
+</div>
+<!--End Header-->
+
+<div data-th-replace="fragment/left :: left-menu">
+</div>
+
+<footer data-th-replace="fragment/footer :: footer">
+</footer>
+<!--End Footer-->
+</body>
+</html>

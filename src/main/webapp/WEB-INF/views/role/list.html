@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="prolms"/>
+
+    <title data-th-text="#{role.list.page.title}">Title</title>
+
+</head>
+
+<body>
+<div>
+    <div id="message" data-th-if="${message}">
+        <strong data-th-text="${message}"></strong>
+    </div>
+
+    <a href="#" data-th-href="@{/roles/new}"
+       data-th-text="#{button.label.add}">Add</a>
+
+    <table>
+        <caption data-th-text="#{role.list.table.title}">Temp table title</caption>
+        <thead>
+        <tr>
+            <th scope="col" data-th-text="#{role.list.id.label}">Temp ID</th>
+            <th scope="col" data-th-text="#{role.list.name.label}">Temp Name</th>
+            <th scope="col" data-th-text="#{role.list.actions.label}">Temp Action</th>
+            <th scope="col" data-th-text="#{role.list.actions.label}">Temp Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="role : ${roles}">
+            <td data-th-text="${role.roleId}">1</td>
+            <td data-th-text="${role.name}">Triple Butter</td>
+            <td>
+                <a href="#" data-th-href="@{/roles/{id}(id=${role.roleId})}"
+                   data-th-text="#{button.label.read}">read</a>
+                <a href="#" data-th-href="@{/roles/{id}/edit(id=${role.roleId})}"
+                   data-th-text="#{button.label.update}">edit</a>
+            </td>
+            <td>
+                <form action="#" data-th-action="@{/roles/{id}/delete(id=${role.roleId})}"
+                      method="post">
+                    <button type="submit" data-th-text="#{button.label.delete}">delete</button>
+                </form>
+            </td>
+        </tr>
+        <tr data-th-remove="all">
+            <td>2</td>
+            <td>Iron Condor</td>
+            <td>High Prob Hedged</td>
+            <td><a href="#">delete</a> | <a href="#">edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

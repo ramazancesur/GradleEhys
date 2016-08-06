@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/denemedb</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping class="tr.com.prolms.base.entity.AnketSoru"/>
+        <mapping class="tr.com.prolms.base.entity.AnketSoruCevap"/>
+        <mapping class="tr.com.prolms.base.entity.Anketler"/>
+        <mapping class="tr.com.prolms.base.entity.Cevaplar"/>
+        <mapping class="tr.com.prolms.base.entity.DersIcerikleri"/>
+        <mapping class="tr.com.prolms.base.entity.Dersler"/>
+        <mapping class="tr.com.prolms.base.entity.Egitmen"/>
+        <mapping class="tr.com.prolms.base.entity.Kisi"/>
+        <mapping class="tr.com.prolms.base.entity.KursOdeme"/>
+        <mapping class="tr.com.prolms.base.entity.Kursiyer"/>
+        <mapping class="tr.com.prolms.base.entity.Kurslar"/>
+        <mapping class="tr.com.prolms.base.entity.Notlar"/>
+        <mapping class="tr.com.prolms.base.entity.OdevSoru"/>
+        <mapping class="tr.com.prolms.base.entity.Yetkiler"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
